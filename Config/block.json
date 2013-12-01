@@ -1,0 +1,29 @@
+{
+    "name": "Chat",
+    "token": "chat",
+    "restricted_to": "user",
+    "types": [
+        {
+            "model_name": "Message",
+            "collection_name": "Messages",
+            "plural": "messages",
+            "ws_origin": "/Chat/Messages",
+            "model_location": "Chat/Models/Message",
+            "collection_location": "Chat/Collections/Messages"
+        }
+    ],
+    "apps": [
+        {
+            "name": "ChatViewer",
+            "token": "chat_viewer",
+            "description": "Your chat.",
+            "link": "#chat_viewer",
+            "logo_url": "/images/icons/user.png",
+            "block_token": "chat",
+            "entry_point": "launch_viewer",
+            "routing": {
+
+            }
+        }
+    ]
+}
