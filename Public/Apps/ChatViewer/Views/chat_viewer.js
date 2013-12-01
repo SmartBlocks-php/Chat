@@ -15,6 +15,13 @@ define([
             base.app = app;
             base.render();
 
+            var allcontacts = SmartBlocks.Blocks.UserManagement.Data.contacts.models;
+            console.log("allcontacts", allcontacts);
+            var contacts = [];
+            for (var i = 0; i < allcontacts.length; i++) {
+                contacts.push(allcontacts[i].get("real_contact"));
+            }
+            console.log("contacts", contacts);
             var messages = SmartBlocks.Blocks.Chat.Data.messages.models;
             for (var i = 0; i < messages.length; i++) {
                 base.displayMessage(messages[i]);
@@ -28,7 +35,7 @@ define([
         },
         sendMessage:function (id, text) {
             var base = this;
-            var user = SmartBlocks.Blocks.Kernel.Data.users.get(id)
+            var user = SmartBlocks.Blocks.Kernel.Data.users.get(id);
             var session_id = user.get('session_id');
             SmartBlocks.sendWs(session_id, {
                 block:"chat",
