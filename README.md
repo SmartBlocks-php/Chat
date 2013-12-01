@@ -1,0 +1,4 @@
+Chat
+====
+
+A chat module.
